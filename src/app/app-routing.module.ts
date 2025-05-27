@@ -1,15 +1,20 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { NotFoundComponent } from './not-found/not-found.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
+import { IndexComponent } from './components/index/index.component';
 
 export const routes: Routes = [
   {
+    path: '',
+    component: IndexComponent
+  },
+  {
     path: 'docs',
-    loadChildren: () => import('./docs/docs.module').then(m => m.DocsModule),
+    loadChildren: () => import('./components/docs/docs.module').then(m => m.DocsModule),
   },
   {
     path: 'reading-list',
-    loadChildren: () => import('./reading-list/reading-list.module').then(m => m.ReadingListModule),
+    loadChildren: () => import('./components/reading-list/reading-list.module').then(m => m.ReadingListModule),
   },
   {
     path: '**',
